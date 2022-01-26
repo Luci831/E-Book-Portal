@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html >
+
+    <style>
+
+        body
+        {
+        background-color: #e6e6e6;
+        }
+        #discounttable
+        {
+            border-style: solid;
+            text-align:center;
+        }
+         h1{
+             color: #808080;
+             
+                 font-family: cursive;
+                 text-align:center;
+             
+         }
+         h2{
+             text-align: center;
+         }
+
+    </style>
+    <script>
+        function calculate()
+        {
+            var bcats=document.getElementsByName("bookCategory");
+            var bact;
+            var price;
+            var disc;
+            for(var i=0;i<bcats.length;i++)
+            {
+                if(bcats[i].checked)
+                {
+                    bcat=bcats[i].value;
+                }
+            }
+            var bcount=document.getElementById("bookval").value;
+            if(bcat=="Science")
+            {
+                price=400;
+                if(bcount<=250)
+                {
+                    disc=5;
+                }
+                else
+                {
+                    disc=7;
+                }
+            }
+            else{
+                price=300;
+                if(bcount<=250)
+                {
+                    disc=3;
+                }
+                else
+                {
+                    disc=4;
+                }
+            }
+            var tot=bcount*price-((bcount*price*disc)/100);
+            document.getElementById("result").innerHTML="Total Price is :"+tot;
+            return false;
+
+        }
+
+    </script>
+
+    <body>
+        <h1>
+            E-BOOK GRAND SALE
+        </h1>
+        <form onsubmit= "return calculate()">
+            <table>
+                <tr>
+                    <td>Customer Name</td>
+                    <td><input type="text" name="customerName" placeholder="Enter customer Name"></td>
+                </tr>
+                <tr>
+                    <td>Email-Id</td>
+                    <td><input type="email" name="mail"></td>
+                </tr>
+                <tr>
+                    <td>Mobile Number</td>
+                    <td><input type="tel" name="customerMobileNumber" placeholder="Enter mobile number"></td>
+                </tr>
+                
+                <tr>
+                    <td>Book Category</td>
+                    <td>
+                    <input type="radio" name="bookCategory" value="Science" id="sci" required>Science
+                    <input type="radio" name="bookCategory" value="Comics" id="com">Comics  
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Type</td>
+                    <td>
+                        <input type="text" name="bookType" list="bookTypes" autocomplete="on">
+                        <datalist id="bookTypes" name="bookTypes">
+                            <option value="Weekly"> Weekly</option>
+                            <option value="Monthly"> Monthly</option>
+                            <option value="Fortnightly"> Fortnightly</option>
+                        </datalist>
+                    </td>
+                </tr>
+                <tr>
+                    <td>No of Books Required</td>
+                    <td><input type="number" name="bookCount" id="bookval" min="1" max="500" val="1">
+                     <output name="x"></output></td>
+                    
+                </tr>
+
+                <tr>
+                    <td><input type="submit" name="submit" value="Calculate total price" onclick=""></td>
+                    <td><input type="reset" name="reset" value="Reset" ></td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <div id="result"></div>
+                    </td>
+                </tr>
+            </table>
+            <h2> Discount Rate Chart</h2>
+            <table border="1" id="discounttable">
+                <tr>
+                    <th>Book Types</th>
+                    <th>per Book Cost</th>
+                    <th>Discount Rate(in percentage)</th>
+                    
+                </tr>
+                <tr>
+                    <td>Science</td>
+                    <td>400</td>
+                    <td>5% if total book count <= 250</td>
+                </tr>
+
+                <tr>
+                    <td>Science</td>
+                    <td>400</td>
+                    <td>7% if total book count > 250</td>
+                </tr>
+
+                <tr>
+                    <td>Comics</td>
+                    <td>300</td>
+                    <td>3% if total book count <= 250</td>
+                </tr>
+
+                <tr>
+                    <td>Comics</td>
+                    <td>300</td>
+                    <td>4% if total book count > 250</td>
+                </tr>
+                </table>
+            </form>
+    </body>
+</html>
