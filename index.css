@@ -1,0 +1,22 @@
+ <style>
+
+        body
+        {
+        background-color: #e6e6e6;
+        }
+        #discounttable
+        {
+            border-style: solid;
+            text-align:center;
+        }
+         h1{
+             color: #808080;
+             
+                 font-family: cursive;
+                 text-align:center;
+             
+         }
+         h2{
+             text-align: center;
+         }
+</style>
