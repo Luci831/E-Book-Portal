@@ -1,4 +1,4 @@
-<script>
+
         function calculate()
         {
             var bcats=document.getElementsByName("bookCategory");
@@ -42,4 +42,4 @@
 
         }
 
-    </script>
+
